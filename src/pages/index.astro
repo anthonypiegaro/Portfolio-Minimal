@@ -3,19 +3,22 @@ import Layout from "../layouts/Layout.astro"
 
 const projects = [
   {
-    name: "Lyft Change",
-    description: "An app for athletes to build, track, and analyze their training programs.",
-    url: "https://lyft-change.vercel.app/"
-  },
-  {
     name: "Pocket",
     description: "A content-saving and organization app for your articles and videos.",
-    url: "https://pocket-mauve.vercel.app/"
+    url: "https://pocket-mauve.vercel.app/",
+    umamiEventName: "click_link_pocket"
   },
   {
     name: "Board",
     description: "A project management tool.",
-    url: "https://board-dusky-delta.vercel.app/"
+    url: "https://board-dusky-delta.vercel.app/",
+    umamiEventName: "click_link_board"
+  },
+  {
+    name: "Lyft Change",
+    description: "An app for athletes to build, track, and analyze their training programs.",
+    url: "https://lyft-change.vercel.app/",
+    umamiEventName: "click_link_lyft_change"
   },
 ]
 ---
@@ -43,6 +46,7 @@ const projects = [
               class="block w-full p-2 transition-all rounded-md cursor-pointer hover:bg-neutral-600/50"
               href={project.url}
               target="_blank"
+              data-umami-event={project.umamiEventName}
             >
               <h3 class="text-lg text-neutral-200 font-medium">{project.name}</h3>
               <p class="font-medium text-neutral-400">{project.description}</p>
@@ -56,6 +60,7 @@ const projects = [
           class="underline cursor-pointer hover:text-neutral-200 transition-all"
           href="https://github.com/anthonypiegaro"
           target="_blank"
+          data-umami-event="click_link_github"
         >
           GitHub
         </a>
