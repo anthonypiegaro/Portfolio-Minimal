@@ -1,16 +1,55 @@
 ---
+import Layout from "../layouts/Layout.astro"
 
+const projects = [
+  {
+    name: "Lyft Change",
+    description: "An app for athletes to build, track, and analyze their training programs.",
+    url: "https://lyft-change.vercel.app/"
+  },
+  {
+    name: "Pocket",
+    description: "A content-saving and organization app for your articles and videos.",
+    url: "https://pocket-mauve.vercel.app/"
+  },
+  {
+    name: "Board",
+    description: "A project management tool.",
+    url: "https://board-dusky-delta.vercel.app/"
+  },
+]
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Anthony Piegaro</title>
-	</head>
-	<body>
-		<h1>Anthony Piegaro Portfolio</h1>
-	</body>
-</html>
+<Layout>
+  <main class="mx-auto w-4xl max-w-full px-2 sm:px-4">
+    <header class="py-12 md:py-16">
+      <h1 class="text-2xl font-semibold text-neutral-50 leading-none">Anthony Piegaro</h1>
+      <p class="text-lg font-medium text-neutral-400 leading-">Web Developer</p>
+    </header>
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold text-neutral-50 mb-4">Today</h2>
+      <p class="font-medium text-neutral-400">
+        I currently work in IT Support, where I help people solve technical challenges and keep systems running smoothly. 
+        Outside of work, I dedicate my time to programming and building web applications. 
+        Right now, I’m focused on front-end development, creating clean, responsive, and user-friendly 
+        apps while continuing to grow my skills as a developer.
+      </p>
+    </section>
+    <section class="my-4">
+      <h2 class="text-xl font-semibold text-neutral-50 mb-4">Projects</h2>
+      <ul class="flex flex-col gap-y-4">
+        {projects.map(project => (
+          <li>
+            <a 
+              class="block w-full p-2 transition-all rounded-md cursor-pointer hover:bg-neutral-600/50"
+              href={project.url}
+              target="_blank"
+            >
+              <h3 class="text-lg text-neutral-200 font-medium">{project.name}</h3>
+              <p class="font-medium text-neutral-400">{project.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
+</Layout>
